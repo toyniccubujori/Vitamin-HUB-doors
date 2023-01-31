@@ -26,6 +26,24 @@ local Tab4Section = Tab4:NewSection("Tracks any object from Workspace")
 
 ---Buttons
 
+Tab1Section:NewButton("Rejoin","Rejoin the server",function()
+-- rejoin		
+local TeleportService = game:GetService("TeleportService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local Rejoin = coroutine.create(function()
+    local Success, ErrorMessage = pcall(function()
+        TeleportService:Teleport(game.PlaceId, LocalPlayer)
+    end)
+
+    if ErrorMessage and not Success then
+        warn(ErrorMessage)
+    end
+end)
+
+coroutine.resume(Rejoin)
+
 Tab1Section:NewButton("Normal Speed","16",function()
 
 Game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
