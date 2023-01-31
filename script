@@ -1,0 +1,191 @@
+local kavoUi = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+
+local window = kavoUi.CreateLib("Vitamin HUB","Synapse")
+
+---Tabs
+
+local Tab1 = window:NewTab("Basic")
+
+local Tab1Section = Tab1:NewSection("Basic Scripts")
+
+local Tab2 = window:NewTab("Bypasses")
+
+local Tab2Section = Tab2:NewSection("Bypass")
+
+local Tab3 = window:NewTab("Credits")
+
+local Tab3Section = Tab3:NewSection("Created by toyniccubujori")
+
+local Tab3Section = Tab3:NewSection("Version 0.0.1 Alpha")
+
+local Tab3Section = Tab3:NewSection("This script is on testing and it may be removed!")
+
+local Tab4 = window:NewTab("ESP")
+
+local Tab4Section = Tab4:NewSection("Tracks any object from Workspace")
+
+---Buttons
+
+Tab1Section:NewButton("Normal Speed","16",function()
+
+Game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+
+end)
+
+Tab1Section:NewButton("24 Speed","24",function()
+
+Game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 24
+
+end)
+
+Tab1Section:NewButton("32 Speed","32",function()
+
+Game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 32
+
+end)
+
+Tab1Section:NewButton("64 Speed","64",function()
+
+Game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 64
+
+end)
+
+Tab1Section:NewButton("100 Speed","100",function()
+
+Game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+
+end)
+
+Tab1Section:NewButton("Kill","Sets Health to 0",function()
+
+Game.Players.LocalPlayer.Character.Humanoid.Health = 0
+
+end)
+
+Tab1Section:NewButton("FullBright","Full Bright",function()
+
+	local lighting = game:GetService("Lighting");	lighting.Ambient = Color3.fromRGB(255, 255, 255);
+
+	lighting.Brightness = 1;
+
+	lighting.FogEnd = 1e10;
+
+	for i, v in pairs(lighting:GetDescendants()) do
+
+		if v:IsA("BloomEffect") or v:IsA("BlurEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("SunRaysEffect") then
+
+			v.Enabled = false;
+
+		end;
+
+	end;
+
+	lighting.Changed:Connect(function()
+
+		lighting.Ambient = Color3.fromRGB(255, 255, 255);
+
+		lighting.Brightness = 1;
+
+		lighting.FogEnd = 1e10;
+
+	end);
+
+	spawn(function()
+
+		local character = game:GetService("Players").LocalPlayer.Character;
+
+		while wait() do
+
+			repeat wait() until character ~= nil;
+
+			if not character.HumanoidRootPart:FindFirstChildWhichIsA("PointLight") then
+
+				local headlight = Instance.new("PointLight", character.HumanoidRootPart);
+
+				headlight.Brightness = 1;
+
+				headlight.Range = 9999;
+
+			end;
+
+		end;
+
+	end);
+
+end)
+
+Tab1Section:NewButton("Leave","Kicks you",function()
+
+Game.Players.LocalPlayer:Kick("PlayerService requested dissconect")
+
+end)
+
+Tab1Section:NewButton("Spawn Screech (Q)","???",function()
+
+local UIS=game:GetService'UserInputService'
+
+getgenv().KeyBind="Q"
+
+ 
+
+UIS.InputBegan:Connect(function(Key)
+
+     if Key.KeyCode==Enum.KeyCode[getgenv().KeyBind] and not UIS:GetFocusedTextBox() then
+
+          require(game.StarterGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech)(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
+
+workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
+
+     end
+
+end)
+
+end)
+
+Tab1Section:NewButton("Btools","Gives Btools",function()
+
+a = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
+
+a.BinType = 2
+
+b = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
+
+b.BinType = 3
+
+c = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
+
+c.BinType = 4
+
+end)
+
+Tab1Section:NewButton("Enable Inventory","Enables Inventory To Bypass Anti Btools",function()
+
+local remote = NLS ([==[
+
+print("Camera Has Been Fixed")
+
+while wait() do
+
+game:GetService("Workspace").CurrentCamera.CameraSubject = owner.Character.Head
+
+]==], owner.Character):WaitForChild 'ServerRemote';
+
+mouse = owner:GetMouse ();
+
+end) 
+
+Tab2Section:NewButton("Mobile Keyboard Bypass","Bypasses the Keyboard",function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+
+end)
+
+Tab2Section:NewButton("AntiCheat Bypass","Bypasses the Anti Cheat",function()
+
+Game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
+
+wait(5)
+
+Game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+
+end)
